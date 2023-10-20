@@ -7,6 +7,7 @@
             <th>Name</th>
             <th>track</th>
             <th>Image</th>
+            <th>Show</th>
         </tr>
         {% for student in students %}
             <tr>
@@ -15,6 +16,7 @@
                 <td>{{student['track']}}</td>
                 <td><img width="200" height="200"
                         src="{{url_for('static', filename='students/images/'+student.image)}}">  </td>
+                <td> <a class="btn btn-info" href="{{url_for('stds.get', id=student.id)}}"> Show </a></td>
             </tr>
         {% endfor %}
     </table>

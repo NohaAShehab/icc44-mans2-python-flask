@@ -19,12 +19,12 @@ students = [
         {"id": 3, "name": "Osman", "track": 'Python', 'image': 'pic3.png'},
         {"id": 4, "name": "yahia", "track": 'Python', 'image': 'pic4.png'},
     ]
-@app.route('/students')
+@app.route('/students', endpoint='stds')
 def get_students():
     return  students
 
 
-@app.route('/students/<int:id>')
+@app.route('/students/<int:id>', endpoint='stds.get')
 def get_specific_student (id):
     stds = list(filter(lambda std: std['id']==id, students))
     if stds:
