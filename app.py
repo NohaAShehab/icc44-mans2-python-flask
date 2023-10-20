@@ -110,5 +110,12 @@ def get_student(id):
         return  '<h1> Object not found </h1>', 404
 
 
+################### urls and routes
+@app.errorhandler(404)
+def page_not_found(error):
+    print(error)
+    return  render_template('errors/page_not_found.html')
+
+
 if __name__ == '__main__':
     app.run(debug=True)
