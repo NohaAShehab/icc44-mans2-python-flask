@@ -99,8 +99,8 @@ def get_student(id):
     else:
         return  '<h1> Object not found </h1>', 404
 
-@app.route('/students/<int:id>/delete', endpoint='students.delete')
-def get_student(id):
+# @app.route('/students/<int:id>/delete', endpoint='students.delete')
+def delete_student(id):
     student= Student.query.get_or_404(id)
     if student:
        db.session.delete(student)
@@ -109,12 +109,23 @@ def get_student(id):
     else:
         return  '<h1> Object not found </h1>', 404
 
+app.add_url_rule('/students/<int:id>/delete',
+                 view_func=delete_student,
+                 endpoint='students.delete', methods=['GET'])
 
-################### urls and routes
+
+# ################## urls and routes
 @app.errorhandler(404)
 def page_not_found(error):
     print(error)
     return  render_template('errors/page_not_found.html')
+
+
+# assign routes to functions
+def testRoute():
+    return "Test page"
+
+app.add_url_rule("/test", view_func=testRoute, endpoint='test', methods=['GET'])
 
 
 if __name__ == '__main__':
