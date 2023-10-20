@@ -52,6 +52,12 @@ db.__init__(app)
 
 # use sqlalchemy --> ORM --> control db, 1- create table + crud operation
 
+class Student(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String)
+    image = db.Column(db.String)
+    track = db.Column(db.String)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
