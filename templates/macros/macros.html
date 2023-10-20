@@ -1,0 +1,10 @@
+{% macro listobjects(objects) %}
+  {% for object in objects%}
+      <li> {{object}} </li>
+  {% endfor %}
+{% endmacro %}
+
+
+{% macro sayhello() %}
+    <h1 style="color: purple; text-align: center"> Hello from Flask </h1>
+{% endmacro %}

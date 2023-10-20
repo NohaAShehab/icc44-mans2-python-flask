@@ -39,7 +39,7 @@ def get_specific_student(id):
 ## render the template
 @app.route('/landing')
 def land():
-    return render_template('students/index.html', students=students)
+    return render_template('landing/index.html', students=students)
 
 
 ### connection to database
