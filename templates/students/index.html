@@ -1,6 +1,8 @@
 {% extends 'layouts/base.html' %}
 {% block title %} Students {% endblock %}
 {% block body %}
+<a href="{{url_for('students.create')}}" class="btn btn-primary"> Add new Student  </a>
+<h1> All students  </h1>
     <table class="table">
         <tr>
             <th>ID</th>
@@ -8,6 +10,7 @@
             <th>track</th>
             <th>Image</th>
             <th>Show</th>
+            <th>Delete</th>
         </tr>
         {% for student in students %}
             <tr>
@@ -16,7 +19,9 @@
                 <td>{{student['track']}}</td>
                 <td><img width="200" height="200"
                         src="{{url_for('static', filename='students/images/'+student.image)}}">  </td>
-                <td> <a class="btn btn-info" href="{{url_for('stds.get', id=student.id)}}"> Show </a></td>
+                <td> <a class="btn btn-info" href="{{url_for('students.show', id=student.id)}}"> Show </a></td>
+                <td> <a class="btn btn-danger" href="{{student.get_delete_url}}"> Delete </a></td>
+
             </tr>
         {% endfor %}
     </table>
