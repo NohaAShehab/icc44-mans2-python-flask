@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Students Index</title>
+</head>
+<body>
+    <h1 style="color: red; text-align: center"> All students </h1>
+    {{students}}
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>track</th>
+            <th>Image</th>
+        </tr>
+        {% for student in students %}
+            <tr>
+                <td>{{student['id']}}</td>
+                <td>{{student['name']}}</td>
+                <td>{{student['track']}}</td>
+                <td>{{student['image']}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>

@@ -1,6 +1,7 @@
 
 from flask import Flask
 from flask import request
+from flask import  render_template
 
 # creating the app object
 app = Flask(__name__)
@@ -28,9 +29,13 @@ def get_specific_student (id):
     stds = list(filter(lambda std: std['id']==id, students))
     if stds:
         return stds[0], 200
-
     return  '<h1> Student not found </h1>', 404
 
+
+## render the template
+@app.route('/landing')
+def land():
+    return render_template('students/index.html', students=students)
 
 if __name__ =='__main__':
     app.run(debug=True)
